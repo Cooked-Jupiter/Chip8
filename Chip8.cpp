@@ -1,6 +1,17 @@
 #include "Chip8.h"
 #include <assert.h>
 
+
+/* NNN: Address. Can be accessed by opcode & 0x0FFF
+ *  NN: 8-bit constant. Can be accessed by opcode & 0x00FF 
+ *  Vx: The Vx register identifier. Can be accessed by opcode & 0x0F00
+ *  Vy: The Vy register identifier. Can be accessed by opcode & 0x00F0
+ *
+ *
+ *
+ *
+ *
+ */
 Chip8* Chip8::m_Instance = 0;
 
 Chip8::~Chip8()
@@ -32,6 +43,7 @@ WORD Chip8::getNextOpcode()
 
 void Chip8::PlayBeep()
 {
+	std::cout << '\a';
 }
 
 int Chip8::getKeyPressed()
@@ -76,7 +88,7 @@ bool Chip8::LoadRom(const std::string& romName)
 	CPUReset();
 	ClearScreen();
 	FILE* in;
-	in = fopen_s(romName.c_str(), "rb");
+	in = fopen(romName.c_str(), "rb");
 
 	if (0 == in)
 		return false;
@@ -138,6 +150,8 @@ void Chip8::DecodeOpcodeF(WORD opcode)
 
 void Chip8::Opcode00EE()
 {
+	m_ProgramCounter = m_Stack.back();
+	m_Stack.pop_back();
 }
 
 void	Chip8::Opcode1NNN(WORD opcode)
@@ -153,15 +167,39 @@ void Chip8::Opcode2NNN(WORD opcode)
 
 void	Chip8::Opcode3XNN(WORD opcode)
 {
+	int NN = opcode & 0x00FF;
+	int regx = opcode & 0x0F00;
+	regx >>= 8;//This offsets it by 8 bits
+	if (m_Registers[regx] == NN)
+		m_ProgramCounter += 2;
 }
 
 void	Chip8::Opcode4XNN(WORD opcode)
 {
+	int NN = opcode & 0x00FF; //NN: 8-bit constant
+	int regx = opcode & 0x0F00;
+	regx >>= 8;
+	if (m_Registers[regx] != NN)
+		m_ProgramCounter += 2;
 }
 void	Chip8::Opcode5XY0(WORD opcode)
 {
+	int regx = opcode & 0x0F00;
+	regx >>= 8;
+	int regy = opcode & 0x00F0;
+	regy >>= 4;
+	if (m_Registers[regx] == m_Registers[regy])
+		m_ProgramCounter += 2;
+
 }
-void	Chip8::Opcode6XNN(WORD opcode) {}
+void	Chip8::Opcode6XNN(WORD opcode) 
+{
+	int NN = opcode & 0x00FF; //NN: 8-bit constant
+
+	int regx = opcode & 0x0F00;
+	regx >>= 8;
+	m_Registers[regx] = NN;
+}
 void	Chip8::Opcode7XNN(WORD opcode) {}
 void	Chip8::Opcode8XY0(WORD opcode) {}
 void	Chip8::Opcode8XY1(WORD opcode) {}
@@ -188,7 +226,6 @@ void	Chip8::OpcodeFX1E(WORD opcode) {}
 void	Chip8::OpcodeFX29(WORD opcode)
 {
 }
-void	Chip8::OpcodeFX29(WORD opcode) {}
 void	Chip8::OpcodeFX33(WORD opcode) {}
 void	Chip8::OpcodeFX55(WORD opcode) {}
 void	Chip8::OpcodeFX65(WORD opcode) {}
