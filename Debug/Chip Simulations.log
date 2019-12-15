@@ -1,0 +1,34 @@
+﻿  Chip8.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\assert.h(14,1): error C2059: syntax error: 'string'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\assert.h(14,1): error C2143: syntax error: missing ';' before '{'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\assert.h(14,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(79,1): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(150,20): warning C4244: 'argument': conversion from 'WORD' to 'const _Ty', possible loss of data
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(150,20): warning C4244:         with
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(150,20): warning C4244:         [
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(150,20): warning C4244:             _Ty=BYTE
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(150,20): warning C4244:         ]
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(191,37): error C2084: function 'void Chip8::OpcodeFX29(WORD)' already has a body
+  main.cpp
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\Chip8.cpp(188): message : see previous definition of 'OpcodeFX29'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(15,14): error C2628: 'Chip8' followed by 'int' is illegal (did you forget a ';'?)
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(15,35): error C2440: 'initializing': cannot convert from 'int' to 'Chip8'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(15,35): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(38,85): error C2664: 'void glDrawPixels(GLsizei,GLsizei,GLenum,GLenum,const GLvoid *)': cannot convert argument 1 from 'const Chip8' to 'GLsizei'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(38,15): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\GL\gl.h(1225,25): message : see declaration of 'glDrawPixels'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(196,1): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(201,1): error C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : see declaration of 'strtok'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(231,44): error C2664: 'void glViewport(GLint,GLint,GLsizei,GLsizei)': cannot convert argument 3 from 'const Chip8' to 'GLsizei'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(231,19): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\GL\gl.h(1492,25): message : see declaration of 'glViewport'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(234,52): error C2664: 'void glOrtho(GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble)': cannot convert argument 2 from 'const Chip8' to 'GLdouble'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(234,13): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\GL\gl.h(1346,25): message : see declaration of 'glOrtho'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(254,5): error C2664: 'SDL_Surface *SDL_SetVideoMode(int,int,int,Uint32)': cannot convert argument 1 from 'const Chip8' to 'int'
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\main.cpp(254,23): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  Generating Code...
+C:\Users\Kohl-Laptop\source\repos\Chip Simulations\SDL\Include\SDL_video.h(347,39): message : see declaration of 'SDL_SetVideoMode'
